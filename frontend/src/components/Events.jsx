@@ -18,7 +18,7 @@ function Events() {
   return (
     <>
     <Header/>
-    <div className='p-2'>
+    <div className='p-5'>
         <ul className='flex flex-wrap'>
             {events.map(each => (
                 <EventCard  key={each.id} details={each}/>
