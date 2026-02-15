@@ -76,6 +76,19 @@ app.get('/events', async (req, res)=>{
     res.send(response)
 })
 
+app.get('/events/:id', async (req, res)=>{
+    const {id}= req.params
+    const response = await db.all(`select * from events where id = ${id}`)
+    res.send(response)
+})
+
+
+app.get('/users', async (req, res)=>{
+    const response = await db.all('select * from users')
+    res.send(response)
+})
+
+
 app.post('/registration', async (req, res)=>{
     const {userId, eventId} = req.body
 
