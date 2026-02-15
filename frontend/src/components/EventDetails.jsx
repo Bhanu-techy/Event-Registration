@@ -17,18 +17,13 @@ function EventDetails() {
                 const date_time = data[0].event_date.split(' ')
                 setDate(date_time[0])
                 setTime(date_time[1])
-                console.log(date_time)
             }
-
         }
-        
-    
         getEvents()
     },[id])
 
     const {name, category, location, description, capacity} = details
     
-
   return (
     <>
     <Header/>
