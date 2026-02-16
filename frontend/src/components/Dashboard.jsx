@@ -40,6 +40,7 @@ function Dashboard() {
           return(
             <li key={each.id} className='border border-md shadow-purple-300 shadow-md rounded m-5 flex p-3 justify-between items-centers w-[90%]'>
               <p>{each.event_name}</p>
+              <p>{each.category}</p>
               <p>{date}</p>
             </li>
             

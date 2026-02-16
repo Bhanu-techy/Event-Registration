@@ -1,5 +1,6 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useContext} from 'react'
 import { useParams } from 'react-router-dom'
+import UserContext from '../Context/UserContext'
 import Header from './Header'
 
 function EventDetails() {
@@ -7,6 +8,8 @@ function EventDetails() {
     const [date, setDate] = useState("")
     const [time, setTime] = useState('')
     const {id} = useParams()
+
+    const {userId} = useContext(UserContext)
 
     useEffect(()=>{
         const getEvents = async () => {
@@ -23,7 +26,22 @@ function EventDetails() {
     },[id])
 
     const onClickRegister = async () =>{
-        const response = await fetch (`https://event-registration-68op.onrender.com/registration`)
+
+        const eventDetails = {userId, eventId : id}
+
+        const url = 'https://event-registration-68op.onrender.com/registration'
+
+        const options = {
+        method: 'POST',
+        headers : {"Content-Type" : "application/json"},
+        body: JSON.stringify(eventDetails),
+        }
+
+        const response = await fetch (url, options)
+        if (response.ok){
+            alert("Event Registered Successfully")
+        }
+
     }
 
     const {name, category, location, description, capacity} = details
@@ -41,7 +59,7 @@ function EventDetails() {
         <p className='font-[sans-serif] m-2'>Description : <span className='font-mono text-purple-500 font-bold'>{description}</span></p>
         <p className='font-[sans-serif] m-2'>Capacity : <span className='font-mono text-purple-500 font-bold'>{capacity}</span></p>
         </div>
-        <button className='m-5 bg-blue-500 text-white rounded w-[95px] h-[35px]'>Register</button>
+        <button onClick={onClickRegister} className='m-5 bg-blue-500 text-white rounded w-[95px] h-[35px]'>Register</button>
     </div>
     </>
   )
