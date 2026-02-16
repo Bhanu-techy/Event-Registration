@@ -1,4 +1,4 @@
-#Title
+# Title
 
 ***Event Registration App***
 
@@ -75,11 +75,10 @@ The goal is to develop a full-stack platform where users can discover, view, and
 
 root/
 ├── server/
-│   ├── models/        # Mongoose Schemas (User, Event)
-│   ├── routes/        # API Endpoints (authRoutes, eventRoutes)
-│   ├── middleware/    # Auth guards
+│   ├── index.js       # Searver start point, Events, Login, Registration
+│   ├── databse.db/    # Sqlite database file
 │   ├── .env           # DB URI, JWT Secret
-│   └── server.js      # Entry point
+│   └── package.json/  # contain required packages
 ├── client/
 │   ├── src/
 │   │   ├── components/ # Reusable UI (Navbar, EventCard)
@@ -101,7 +100,7 @@ root/
 
 ```text
   email: bhanu@gmail.com
-  password: joy@85
+  password: bhanu@1234
 ```
 
 ```text
