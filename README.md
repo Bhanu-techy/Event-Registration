@@ -109,7 +109,7 @@ root/
 ```
 
 ```text
- email: rahul
+ email: rahul@gmail.com
  password: rahul@1234
 ```
 
