@@ -30,16 +30,16 @@ function Dashboard() {
       </div> :
        <ul>
             <div className='border border-md shadow-md rounded m-5 flex p-3 justify-between items-centers w-[90%]'>
-              <p className='text-lg '>Event Name</p>
-              <p className='text-lg pr-3'>Category</p>
+              <p className='text-lg w-[200px] '>Event Name</p>
+              <p className='text-lg text-center pr-3'>Category</p>
               <p className='text-lg pr-5'>Date</p>
             </div>
         {data.map((each)=>{
           const date = each.event_date.split(" ")[0]
           return(
             <li key={each.id} className='border border-md shadow-purple-300 shadow-md rounded m-5 flex p-3 justify-between items-centers w-[90%]'>
-              <p>{each.event_name}</p>
-              <p>{each.category}</p>
+              <p className='w-[200px]'>{each.event_name}</p>
+              <p className='w-[120px] text-center'>{each.category}</p>
               <p>{date}</p>
             </li>
             
