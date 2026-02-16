@@ -15,13 +15,13 @@ function Header() {
   }
 
   return (
-    <div className='h-[10vh] bg-gray-300 p-2 flex justify-between items-center'>
-        <h1>Logo</h1>
+    <div className='h-[10vh] bg-purple-200 p-2 flex justify-between items-center p-5'>
+        <img src="https://res.cloudinary.com/dsqphsoxb/image/upload/v1723546423/samples/logo.png" className='w-[50px]'/>
         <div className='w-[200px] flex justify-between underline'>
-            <Link to='/events'>Events</Link>
-            <Link to='/dashboard'>Dashboard</Link>
+            <Link to='/events' className='text-blue-700'>Events</Link>
+            <Link to='/dashboard' className='text-orange-600'>Dashboard</Link>
         </div>
-        <button onClick={onClickLogout}>Logout</button>
+        <button className='bg-blue-600 text-white rounded w-[60px] h-[27px]' onClick={onClickLogout}>Logout</button>
     </div>
   )
 }

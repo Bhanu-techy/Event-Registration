@@ -111,6 +111,7 @@ app.post('/registration', async (req, res)=>{
 
 app.get('/registration', async (req, res)=>{
     const response = await db.all(`SELECT 
+    events.id,
     events.name AS event_name,
     events.event_date
     FROM registrations
@@ -123,7 +124,8 @@ app.get('/registration/:id', async (req, res)=>{
     const {id} = req.params
     const response = await db.all(`SELECT 
     events.name AS event_name,
-    events.event_date
+    events.event_date,
+    events.category
     FROM registrations
     JOIN users ON registrations.user_id = users.id
     JOIN events ON registrations.event_id = events.id 

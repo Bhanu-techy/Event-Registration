@@ -22,13 +22,17 @@ function EventDetails() {
         getEvents()
     },[id])
 
+    const onClickRegister = async () =>{
+        const response = await fetch (`https://event-registration-68op.onrender.com/registration`)
+    }
+
     const {name, category, location, description, capacity} = details
     
   return (
     <>
     <Header/>
-    <div className='p-5 h-[90vh] flex justify-center items-center text-lg'>
-        <div className=' rounded-tr-full rounded-bl-full w-[1000px] border h-[500px] shadow-xl shadow-purple-200 flex flex-col justify-center items-center pl-5 p-3'>
+    <div className='p-5 h-[90vh] flex flex-col justify-center items-center text-lg'>
+        <div className=' rounded-2xl w-[800px] border h-[500px] shadow-xl shadow-purple-200 flex flex-col justify-center items-center m-3 pl-5 p-3'>
         <p className='font-[sans-serif] m-2'>Event : <span className='font-mono text-purple-500 font-bold'>{name}</span></p>
         <p className='font-[sans-serif] m-2'>Location : <span className='font-mono text-purple-500 font-bold'>{location}</span></p>
         <p className='font-[sans-serif] m-2'>Date : <span className='font-mono text-purple-500 font-bold'>{date}</span></p>
@@ -37,6 +41,7 @@ function EventDetails() {
         <p className='font-[sans-serif] m-2'>Description : <span className='font-mono text-purple-500 font-bold'>{description}</span></p>
         <p className='font-[sans-serif] m-2'>Capacity : <span className='font-mono text-purple-500 font-bold'>{capacity}</span></p>
         </div>
+        <button className='m-5 bg-blue-500 text-white rounded w-[95px] h-[35px]'>Register</button>
     </div>
     </>
   )
