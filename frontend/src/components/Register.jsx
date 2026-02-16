@@ -1,5 +1,6 @@
-import {useState} from 'react'
+import {useState, useContext} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import UserContext from '../Context/UserContext'
 
 function Register() {
 
@@ -10,6 +11,7 @@ function Register() {
     const [errMsg, setErrmsg ] = useState("")
 
      const navigate = useNavigate();
+     const {setId, setToken} = useContext(UserContext)
 
     const submitForm = async event => {
         event.preventDefault()
@@ -25,9 +27,9 @@ function Register() {
     const data = await response.json()
     
     if (response.ok) {
-      
+      setToken(data.jwt_token)
+      setId(data.userId)
       navigate("/events", {replace : true})
-      
     } else {
       setErrmsg(data.error_msg)
       setShowErr(true)

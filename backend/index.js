@@ -123,6 +123,7 @@ app.get('/registration', async (req, res)=>{
 app.get('/registration/:id', async (req, res)=>{
     const {id} = req.params
     const response = await db.all(`SELECT 
+    events.id,
     events.name AS event_name,
     events.event_date,
     events.category

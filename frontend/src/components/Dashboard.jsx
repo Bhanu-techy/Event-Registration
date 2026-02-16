@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import Header from './Header'
 import UserContext from '../Context/UserContext'
 
@@ -32,8 +31,8 @@ function Dashboard() {
        <ul>
             <div className='border border-md shadow-md rounded m-5 flex p-3 justify-between items-centers w-[90%]'>
               <p className='text-lg '>Event Name</p>
-              <p className='text-lg'>Category</p>
-              <p className='text-lg'>Date</p>
+              <p className='text-lg pr-3'>Category</p>
+              <p className='text-lg pr-5'>Date</p>
             </div>
         {data.map((each)=>{
           const date = each.event_date.split(" ")[0]

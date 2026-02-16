@@ -38,8 +38,12 @@ function EventDetails() {
         }
 
         const response = await fetch (url, options)
+        const data = await response.json()
+        
         if (response.ok){
             alert("Event Registered Successfully")
+        }else{
+            alert(data.error_msg)
         }
 
     }
@@ -58,8 +62,8 @@ function EventDetails() {
         <p className='font-[sans-serif] m-2'>Category : <span className='font-mono text-purple-500 font-bold'>{category}</span></p>
         <p className='font-[sans-serif] m-2'>Description : <span className='font-mono text-purple-500 font-bold'>{description}</span></p>
         <p className='font-[sans-serif] m-2'>Capacity : <span className='font-mono text-purple-500 font-bold'>{capacity}</span></p>
-        </div>
         <button onClick={onClickRegister} className='m-5 bg-blue-500 text-white rounded w-[95px] h-[35px]'>Register</button>
+        </div>
     </div>
     </>
   )
